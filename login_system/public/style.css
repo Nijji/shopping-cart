@@ -1,0 +1,28 @@
+body{
+background-image:url('/assets/2.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+overflow: hidden;
+    
+}
+/* .center-div{
+    padding-top: 0%;
+    width: 800px;
+    height: 400px;
+}
+.group{
+    border: solid 2px red;
+    margin-left: 10px;
+    background-color: aqua;
+    width: 300px;
+    /* margin-right: 900px; */
+/* }
+ .btn{
+    margin-left: 100px; 
+    background-color: pink;
+} 
+.foot{
+    height: 50px;
+    /* margin-top: 200px; */
+    /* color: red;
+} */ 

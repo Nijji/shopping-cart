@@ -1,0 +1,36 @@
+
+
+<div .text-center center-div id="login">
+  <div class= 'container w-25 border py-5'>
+    <div class= 'title pb-5'>
+      <h2 class='font-weight-bold'>Feel the Express shopping Experience!</h2>
+      <!-- <span>log in for the existing user</span> -->
+      <% if(locals.logout){%>
+      <div>
+      </div>
+      <%}%>
+    </div>
+    <form action="/route/login" method="POST" class="group"  >
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="email"
+          name="email"
+          class="form-control"
+        />
+        <small .form-text text-muted text-left>Username</small>
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
+          class="form-control"
+        />
+        <small .form-text text-muted text-left>Password</small>
+      </div>
+      <button type="submit" class="btn btn-success rounded-pill">submit</button>
+    </form>
+  </div>
+</div>
+<%-include('layouts/footer')-%>
