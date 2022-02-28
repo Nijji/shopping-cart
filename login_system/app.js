@@ -6,7 +6,7 @@ const path=require('path')
 const bodyparser=require('body-parser')
 const session=require('express-session')
 const expressValidator=require('express-validator')
-//const {v4:uuidv4} =require('uuid')
+const {v4:uuidv4} =require('uuid')
 const router=require('./routes/pages')
 const fs=require('fs')
 const mongoose=require('mongoose')
@@ -22,7 +22,7 @@ const config=require('./config/database')
 
 //bodyparser middleware
 app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({extended:true}))
+app.use(bodyparser.urlencoded({extended:false}))
 
 //session middleware
 app.use(session({
@@ -34,9 +34,9 @@ app.use(session({
 
 //validator middleware
 // app.use(expressValidator({
-//     errorformatter:function (param,msg,value) {
-//        var namespace=param.split('.') ,
-//        root=namespace.shift(),
+//     errorFormatter:function (param,msg,value) {
+//        var namespace=param.split('.') 
+//        root=namespace.shift()
 //        formParam=root
 
 //     while (namespace.length) {
@@ -57,21 +57,20 @@ app.use(function (req, res, next) {
   next();
 });
 
-//viewtemplate
+//view template
 app.set('views',path.join(__dirname,'views'))
 app.set('view engine','ejs')
 
 //load public folder
 app.use('/static',express.static(path.join(__dirname,'public')))
-app.use('/assets',express.static(path.join(__dirname,'public/assets')))
+//app.use('/assets',express.static(path.join(__dirname,'public/assets')))
 
 //set routes
 
 var pages=require('./routes/pages.js')
 var admin=require('./routes/admin.js')
 
-app.use('/',router)
-app.use('/route',router)
+app.use('/',pages)
 app.use('/admin/pages',admin)
 
 //start server

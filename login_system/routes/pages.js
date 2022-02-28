@@ -10,7 +10,9 @@ var router=express.Router()
 
 //home route
 router.get('/',(req,res)=>{
-     res.render('index')
+     res.render('index',{
+        title:'myshop.com'
+     })
   })
 
 // // //login user
